@@ -2,6 +2,7 @@
 #include <unistd.h>
 /**
  * main - Standard error
+ *
  * Return: Always 1 (Success)
  */
 int main(void)
