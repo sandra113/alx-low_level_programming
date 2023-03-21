@@ -1,6 +1,4 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdio.h>
 
 /**
  * print_alphabet - prints the lowercase alphabets
@@ -13,17 +11,7 @@ void print_alphabet(void)
 
 	for (c = 'a'; c <= 'z'; c++)
 	{
-		putchar(c);
+		_putchar(c);
 	}
-	putchar('\n');
-}
-/**
- * main - calls for the print_alphabet function
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	print_alphabet();
-	return (0);
+	_putchar('\n');
 }
