@@ -22,7 +22,7 @@ char *argstostr(int ac, char **av)
 		{
 			len++; /*total length of the concatenated string*/
 		}
-		len++; /*for the new line character add 1*/
+		len += ac; /*for each new line character add 1*/
 	}
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
