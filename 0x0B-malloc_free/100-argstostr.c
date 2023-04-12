@@ -23,7 +23,7 @@ char *argstostr(int ac, char **av)
 		{
 			len++; /*total length of the concatenated string*/
 		}
-		len += ac; /*for each new line character add 1*/
+		len ++; /*for each new line character add 1*/
 	}
 	str = malloc(sizeof(char) * len);
 	if (str == NULL)
