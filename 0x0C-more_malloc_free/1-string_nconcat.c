@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 /**
  * string_nconcat - concatenates two string
@@ -13,43 +14,27 @@
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *pp;
-	unsigned int i;
-	unsigned int j;
+	size_t lenS1;
+	size_t lenS2;
 
 
 	if (s1 == NULL)
-		return (NULL);
+		s1 = "";
 	if (s2 == NULL)
-		return (NULL);
-	if (n < strlen(s2))
-	{
-		pp = malloc(sizeof(char) * (strlen(s1) + n + 1));
-	}
-	else
-	{
-		pp = malloc(sizeof(char) * (strlen(s1) + (strlen(s2)) + 1));
-	}
+		s2 = "";
+
+	lenS1 = strlen(s1);
+	lenS2 = strlen(s2);
+
+	if (n >= lenS2)
+		n = lenS2;
+	pp = malloc(lenS1 + n + 1);
 	if (!pp)
 		return (NULL);
-	i = 0;
-	pp = s1;
-	while (pp[i] < '\0')
-	{
-		i++;
-	}
-	for (j = 0; s2[j] < '\0'; j++)
-	{
-		if (n > strlen(s2))
-		{
-			pp[i] = s2[j];
-		}
-		else
-		{
-			for (j = 0; j <= n; j++)
-			{
-				pp[i] = s2[j];
-			}
-		}
-	}
+
+	memcpy(pp, s1, lenS1);
+	memcpy(pp + lenS1, s2, n);
+	pp[lenS1 + n] = '\0';
+
 	return (pp);
 }
