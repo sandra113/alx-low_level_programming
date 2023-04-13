@@ -4,11 +4,12 @@
 #include <limits.h>
 
 /*
- * malloc_checked - allocates memory
- * @b: bytes to allocate 
+ * *malloc_checked - allocates memory using malloc
+ * @b: bytes to allocate
  *
  * Return: a pointer to allocated memory
  */
+
 void *malloc_checked(unsigned int b)
 {
 	void *a;
@@ -16,5 +17,5 @@ void *malloc_checked(unsigned int b)
 	a = malloc(b);
 	if (a == NULL)
 		exit(98);
-	return(a);
+	return (a);
 }
