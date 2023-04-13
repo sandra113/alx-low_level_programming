@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <limits.h>
 
-/*
- * *malloc_checked - allocates memory using malloc
+/**
+ * malloc_checked - allocates memory using malloc
  * @b: bytes to allocate
  *
  * Return: a pointer to allocated memory
