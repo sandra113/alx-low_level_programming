@@ -15,9 +15,8 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	int i, j;
 	char *p;
 
-	p = argv[2];
 
-	if (argc != 4 || p[1] != '\0')
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
@@ -27,7 +26,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	j = atoi(argv[3]);
 	p = argv[2];
 
-	if (get_op_func(p) == NULL)
+	if (get_op_func(p) == NULL || p[1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
