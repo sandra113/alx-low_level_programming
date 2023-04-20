@@ -10,12 +10,14 @@
  * Return: 0 success
  */
 
-int main(int __attribute__((__unused__)) argc, char* argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int i, j;
 	char *p;
 
-	if (argc != 4)
+	p = argv[2];
+
+	if (argc != 4 || p[1] != '\0')
 	{
 		printf("Error\n");
 		exit(98);
@@ -25,8 +27,7 @@ int main(int __attribute__((__unused__)) argc, char* argv[])
 	j = atoi(argv[3]);
 	p = argv[2];
 
-	
-	if (p[1] != '\0' || get_op_func(p) == NULL)
+	if (get_op_func(p) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
@@ -38,6 +39,6 @@ int main(int __attribute__((__unused__)) argc, char* argv[])
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(p)(i ,j));
+	printf("%d\n", get_op_func(p)(i, j));
 	return (0);
 }
