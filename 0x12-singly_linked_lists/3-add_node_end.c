@@ -4,25 +4,37 @@
 #include "lists.h"
 
 /**
- * add_node - adds a new node at the beginning of  a list
+ * add_node_end - adds a new node at the end of  a list
  * @str: new element
  * @head: the first node of the list
  * Return: address of the new element
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new_node;
-	unsigned int len2;
+	list_t *last_node;
 
-	for (len2 = 1; str[len2] != '\0'; len2++)
-
+	last_node = (*head);
 	new_node = malloc(sizeof(list_t));
 	if (!new_node)
 		return (NULL);
-	new_node->str = strdup(str);
-	new_node->len = len2;
-	new_node->next = (*head);
 
-	(*head) = new_node;
-	return (*head);
+	new_node->str = strdup(str);
+	if (str == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->len = strlen(str);
+	new_node->next = (NULL);
+
+	if (*head == NULL)
+	{
+		(*head) = new_node;
+		return (new_node);
+	}
+	while (last_node->next)
+		last_node = last_node->next;
+	last_node->next = new_node;
+	return (new_node);
 }
