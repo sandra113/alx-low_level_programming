@@ -3,7 +3,7 @@
 
 /**
  * get_endianness - checks the enduanes
- * Returns: 0 (big endian), 1 (little endian)
+ * Return: 0 (big endian), 1 (little endian)
  */
 
 int get_endianness(void)
