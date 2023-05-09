@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "main.h"
+
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output
  * @filename: the file to be read
@@ -22,17 +23,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (file == NULL)
 		return (0);
 
-	bytes_read = fread(buffer, 1, sizeof(buffer), file);
+	bytes_read = fread(buffer, 1, letters, file);
 
-	while (bytes_read > 0 && bytes_read < letters)
-	{
-		fwrite(buffer, 1, bytes_read, stdout);
-		letters -= bytes_read;
-		bytes_read = fread(buffer, 1, sizeof(buffer), file);
-	}
+	fwrite(buffer, 1, bytes_read, stdout);
 
 	fclose(file);
-	return (bytes_read);
+
+	return(bytes_read);
+
 }
 
 
