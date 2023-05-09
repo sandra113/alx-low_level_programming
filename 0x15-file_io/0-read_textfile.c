@@ -24,11 +24,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	bytes_read = fread(buffer, 1, sizeof(buffer), file);
 
-	while (bytes_read > 0 && letters > 0)
+	while (bytes_read > 0 && bytes_read < letters)
 	{
 		fwrite(buffer, 1, bytes_read, stdout);
-		letters -= bytes_read;
-		bytes_read = fread(buffer, 1, sizeof(buffer), file);
 	}
 
 	fclose(file);
