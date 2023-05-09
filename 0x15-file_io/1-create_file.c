@@ -6,7 +6,7 @@
  * create_file - creates a file
  * @filename: the name of the file
  * @text_content: the content of the file
- * Returns 1 success
+ * Return: 1 success
  */
 int create_file(const char *filename, char *text_content)
 {
@@ -14,7 +14,7 @@ int create_file(const char *filename, char *text_content)
 
 	file = fopen(filename, "rw");
 	if (file == NULL)
-		return(-1);
+		return (-1);
 	if (filename == NULL)
 		return (-1);
 
