@@ -9,9 +9,4 @@
  */
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
-	{
-		exit_with_error("Usage: cp file_from file_to", 97);
-	}
-
 
