@@ -46,8 +46,7 @@ int copy_file(const char *file_from, const char *file_to)
 	if (first_file == -1)
 		err_exit(98, "Can't read from file");
 	/* Opening the destination file */
-	second_file = open(file_to, O_WRONLY | O_CREAT | O_TRUNC,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	second_file = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (second_file == -1)
 	{
