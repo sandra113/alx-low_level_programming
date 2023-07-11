@@ -19,14 +19,15 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (-1);
 
-	if (text_content == NULL)
-		return (-1);
+	if (text_content != NULL)
+	{
+		textlen = strlen(text_content);
+	}
 
-	file = fopen(filename, "a");
+	file = fopen(filename, "wa");
 		if (file == NULL)
 			return (-1);
 
-	textlen = strlen(text_content);
 	writtenbytes = fwrite(text_content, sizeof(char), textlen, file);
 
 	fwrite("\n", sizeof(char), 1, file);
