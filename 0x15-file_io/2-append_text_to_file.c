@@ -24,7 +24,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		textlen = strlen(text_content);
 	}
 
-	file = fopen(filename, "wa");
+	file = fopen(filename, "a");
 		if (file == NULL)
 			return (-1);
 
