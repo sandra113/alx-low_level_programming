@@ -19,10 +19,10 @@ void print_binary(unsigned long int n)
 			lead_zeroes = 0;
 
 		if (!lead_zeroes)
-			printf("%d", (n & mask) != 0);
+			_putchar((n & mask) != 0 ? '1' : '0');
 
 		mask >>= 1;
 	}
 	if (lead_zeroes)
-		printf("0");
+		_putchar('0');
 }
